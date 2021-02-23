@@ -2,14 +2,14 @@ package list;
 
 import java.util.NoSuchElementException;
 
-public class LinkedList {
+public class LinkedList <T> {
 
     Node first;
 
     Node last;
     int size;
 
-    public void addLast(Integer value) {
+    public void addLast(T value) {
         Node n = last;
         Node newNode = new Node(n, value, null);
         last = newNode;
@@ -18,7 +18,7 @@ public class LinkedList {
         } else n.next = newNode;
         size++;
     }
-    public void addFirst (Integer value){
+    public void addFirst (T value){
         Node n = first;
         Node newNode = new Node(null, value, n);
         first = newNode;
@@ -87,15 +87,15 @@ public class LinkedList {
         return stringBuilder.toString();
     }
 
-    private static class Node {
+    private static class Node <T>{
 
-        public Node(Node prev, Integer value, Node next) {
+        public Node(Node prev, T value, Node next) {
             this.value = value;
             this.next = next;
             this.prev = prev;
         }
 
-        Integer value;
+        T value;
         Node next;
         Node prev;
 
